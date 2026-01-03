@@ -11,7 +11,7 @@ curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 # Esto hace que el ~/.bashrc real apunte a tu archivo del repo
 
 echo "Creando enlaces simbolicos"
-ln -sf ~/dots/.bashrc ~/.bashrc
-ln -sf ~/dots/.omp.json ~/.omp.json
+ln -sf ~./.bashrc ~/.bashrc
+ln -sf ~./.omp.json ~/.omp.json
 
 echo "¡Fedorita Style instalado! Reinicia la terminal o haz: source ~/.bashrc"
