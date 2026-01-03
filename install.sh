@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# 1. Instalar Oh My Posh (binario local para no pedir sudo si no es necesario)
+# 1. Instalar Oh My Posh
 mkdir -p ~/.local/bin
-
-
-echo "Instalando ohmyposh"
+echo "Instalando ohmyposh..."
 curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
 
-# 2. Crear enlaces simbólicos (Symlinks)
-# Esto hace que el ~/.bashrc real apunte a tu archivo del repo
+# 2. Crear enlaces simbólicos (Corregidos)
+# Usamos $(pwd) para obtener la ruta completa de donde estás parado ahora
+echo "Creando enlaces simbolicos..."
 
-echo "Creando enlaces simbolicos"
-ln -sf ~./.bashrc ~/.bashrc
-ln -sf ~./.omp.json ~/.omp.json
+# Eliminamos los links rotos anteriores primero
+rm -f ~/.bashrc ~/.omp.json
+
+# Creamos los nuevos apuntando a los archivos de esta carpeta
+ln -sf "$(pwd)/.bashrc" ~/.bashrc
+ln -sf "$(pwd)/.omp.json" ~/.omp.json
 
 echo "¡Fedorita Style instalado! Reinicia la terminal o haz: source ~/.bashrc"
